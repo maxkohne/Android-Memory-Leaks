@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import com.kohne.memoryleaks.MainNavigationListener
 import com.kohne.memoryleaks.R
 import com.kohne.memoryleaks.databinding.ListMemoryLeakViewFragmentBinding
-import com.kohne.memoryleaks.viewbindingdelegate.DetailsViewBindingDelegateSolutionFragment
 
 internal class ListMemoryLeakViewFragment : Fragment(R.layout.list_memory_leak_view_fragment),
     ListMemoryLeakViewAdapter.OnListMemoryLeakItemClickedListener {
@@ -48,7 +47,7 @@ internal class ListMemoryLeakViewFragment : Fragment(R.layout.list_memory_leak_v
     }
 
     override fun onListItemClicked(data: String) {
-        navigationListener?.launchFragment(DetailsViewBindingDelegateSolutionFragment.newInstance())
+        navigationListener?.launchFragment(DetailsMemoryLeakViewFragment.newInstance())
     }
 
     companion object {
