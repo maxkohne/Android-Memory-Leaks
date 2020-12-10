@@ -5,17 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.kohne.memoryleaks.databinding.DetailsViewMemoryLeakFragmentBinding
+import com.kohne.memoryleaks.databinding.DetailsMemoryLeakViewFragmentBinding
 
 internal class DetailsMemoryLeakViewFragment : Fragment() {
 
-    private lateinit var binding: DetailsViewMemoryLeakFragmentBinding
+    private lateinit var binding: DetailsMemoryLeakViewFragmentBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = DetailsViewMemoryLeakFragmentBinding.inflate(inflater, container, false)
+        binding = DetailsMemoryLeakViewFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 
