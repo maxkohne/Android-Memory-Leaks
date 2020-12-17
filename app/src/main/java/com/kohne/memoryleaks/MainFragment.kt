@@ -4,10 +4,10 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.kohne.memoryleaks.adaptermemoryleak.ListAdapterMemoryLeakFragment
+import com.kohne.memoryleaks.adapterleak.ListAdapterMemoryLeakFragment
 import com.kohne.memoryleaks.databinding.MainFragmentBinding
 import com.kohne.memoryleaks.viewbindingdelegate.ListViewBindingDelegateSolutionFragment
-import com.kohne.memoryleaks.viewmemoryleak.ListMemoryLeakViewFragment
+import com.kohne.memoryleaks.viewbindingleak.ListViewBindingMemoryLeakFragment
 
 internal class MainFragment : Fragment(R.layout.main_fragment) {
 
@@ -22,7 +22,7 @@ internal class MainFragment : Fragment(R.layout.main_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.mainButtonViewMemoryLeak.setOnClickListener {
-            navigationListener?.launchFragment(ListMemoryLeakViewFragment.newInstance())
+            navigationListener?.launchFragment(ListViewBindingMemoryLeakFragment.newInstance())
         }
 
         binding.mainButtonAdapterMemoryLeak.setOnClickListener {

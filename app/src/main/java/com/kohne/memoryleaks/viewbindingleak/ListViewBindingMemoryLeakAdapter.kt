@@ -1,14 +1,14 @@
-package com.kohne.memoryleaks.adaptermemoryleak
+package com.kohne.memoryleaks.viewbindingleak
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.kohne.memoryleaks.databinding.ListItemBinding
 
-internal class ListAdapterMemoryLeakAdapter(
+internal class ListViewBindingMemoryLeakAdapter(
     private val listener: OnListMemoryLeakItemClickedListener
 ) :
-    RecyclerView.Adapter<ListAdapterMemoryLeakAdapter.ListMemoryLeakViewHolder>() {
+    RecyclerView.Adapter<ListViewBindingMemoryLeakAdapter.ListMemoryLeakViewHolder>() {
 
     private val items = listOf("A", "B", "C", "D", "E", "F", "G")
 

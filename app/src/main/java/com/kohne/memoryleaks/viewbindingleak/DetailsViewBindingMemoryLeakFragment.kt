@@ -1,4 +1,4 @@
-package com.kohne.memoryleaks.viewmemoryleak
+package com.kohne.memoryleaks.viewbindingleak
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.kohne.memoryleaks.databinding.DetailsMemoryLeakViewFragmentBinding
 
-internal class DetailsMemoryLeakViewFragment : Fragment() {
+internal class DetailsViewBindingMemoryLeakFragment : Fragment() {
 
     private lateinit var binding: DetailsMemoryLeakViewFragmentBinding
 
@@ -20,6 +20,6 @@ internal class DetailsMemoryLeakViewFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance() = DetailsMemoryLeakViewFragment()
+        fun newInstance() = DetailsViewBindingMemoryLeakFragment()
     }
 }

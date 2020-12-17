@@ -1,4 +1,4 @@
-package com.kohne.memoryleaks.viewmemoryleak
+package com.kohne.memoryleaks.viewbindingleak
 
 import android.content.Context
 import android.os.Bundle
@@ -8,14 +8,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.kohne.memoryleaks.MainNavigationListener
 import com.kohne.memoryleaks.R
-import com.kohne.memoryleaks.databinding.ListMemoryLeakViewFragmentBinding
+import com.kohne.memoryleaks.databinding.ListViewBindingMemoryLeakFragmentBinding
 
-internal class ListMemoryLeakViewFragment : Fragment(R.layout.list_memory_leak_view_fragment),
-    ListMemoryLeakViewAdapter.OnListMemoryLeakItemClickedListener {
+internal class ListViewBindingMemoryLeakFragment : Fragment(R.layout.list_view_binding_memory_leak_fragment),
+    ListViewBindingMemoryLeakAdapter.OnListMemoryLeakItemClickedListener {
 
     // This will leak both the binding and the adapter
-    private lateinit var binding: ListMemoryLeakViewFragmentBinding
-    private lateinit var adapter: ListMemoryLeakViewAdapter
+    private lateinit var binding: ListViewBindingMemoryLeakFragmentBinding
+    private lateinit var adapter: ListViewBindingMemoryLeakAdapter
 
     private var navigationListener: MainNavigationListener? = null
 
@@ -26,7 +26,7 @@ internal class ListMemoryLeakViewFragment : Fragment(R.layout.list_memory_leak_v
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        adapter = ListMemoryLeakViewAdapter(listener = this)
+        adapter = ListViewBindingMemoryLeakAdapter(listener = this)
     }
 
     override fun onCreateView(
@@ -34,10 +34,8 @@ internal class ListMemoryLeakViewFragment : Fragment(R.layout.list_memory_leak_v
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = ListMemoryLeakViewFragmentBinding.inflate(inflater, container, false)
-
-        binding.listMemoryLeakRecyclerView.adapter = adapter
-
+        binding = ListViewBindingMemoryLeakFragmentBinding.inflate(inflater, container, false)
+        binding.recyclerView.adapter = adapter
         return binding.root
     }
 
@@ -47,10 +45,10 @@ internal class ListMemoryLeakViewFragment : Fragment(R.layout.list_memory_leak_v
     }
 
     override fun onListItemClicked(data: String) {
-        navigationListener?.launchFragment(DetailsMemoryLeakViewFragment.newInstance())
+        navigationListener?.launchFragment(DetailsViewBindingMemoryLeakFragment.newInstance())
     }
 
     companion object {
-        fun newInstance() = ListMemoryLeakViewFragment()
+        fun newInstance() = ListViewBindingMemoryLeakFragment()
     }
 }
