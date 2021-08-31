@@ -1,6 +1,5 @@
 package com.kohne.memoryleaks.viewbindingdelegate
 
-import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -12,6 +11,10 @@ import com.kohne.memoryleaks.viewBinding
 internal class ListViewBindingDelegateSolutionFragment :
     Fragment(R.layout.list_view_binding_delegate_solution_fragment),
     ListViewBindingDelegateSolutionAdapter.OnListViewBindingItemClickedListener {
+
+    companion object {
+        fun newInstance() = ListViewBindingDelegateSolutionFragment()
+    }
 
     private val binding by viewBinding(ListViewBindingDelegateSolutionFragmentBinding::bind)
 
@@ -25,9 +28,5 @@ internal class ListViewBindingDelegateSolutionFragment :
 
     override fun onListItemClicked(data: String) {
         navigationListener.launchFragment(DetailsViewBindingDelegateSolutionFragment.newInstance())
-    }
-
-    companion object {
-        fun newInstance() = ListViewBindingDelegateSolutionFragment()
     }
 }
