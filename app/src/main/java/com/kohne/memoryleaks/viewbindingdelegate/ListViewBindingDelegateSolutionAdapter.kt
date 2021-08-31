@@ -7,8 +7,7 @@ import com.kohne.memoryleaks.databinding.ListItemBinding
 
 internal class ListViewBindingDelegateSolutionAdapter(
     private val listener: OnListViewBindingItemClickedListener
-) :
-    RecyclerView.Adapter<ListViewBindingDelegateSolutionAdapter.ListViewBindingViewHolder>() {
+) : RecyclerView.Adapter<ListViewBindingDelegateSolutionAdapter.ListViewBindingViewHolder>() {
 
     private val items = listOf("A", "B", "C", "D", "E", "F", "G")
 

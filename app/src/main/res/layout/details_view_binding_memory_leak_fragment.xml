@@ -4,4 +4,4 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:padding="30dp"
-    android:text="This shows how the views / databinding object is leaked after onDestroyView() is called" />
+    android:text="This shows how the views / databinding object is leaked after onDestroyView() is called. Wait a few seconds for LeakCanary to show its results with a notification." />

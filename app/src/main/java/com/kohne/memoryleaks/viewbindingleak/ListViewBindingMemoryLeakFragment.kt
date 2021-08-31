@@ -1,6 +1,5 @@
 package com.kohne.memoryleaks.viewbindingleak
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,16 +12,15 @@ import com.kohne.memoryleaks.databinding.ListViewBindingMemoryLeakFragmentBindin
 internal class ListViewBindingMemoryLeakFragment : Fragment(R.layout.list_view_binding_memory_leak_fragment),
     ListViewBindingMemoryLeakAdapter.OnListMemoryLeakItemClickedListener {
 
+    companion object {
+        fun newInstance() = ListViewBindingMemoryLeakFragment()
+    }
+
     // This will leak both the binding and the adapter
     private lateinit var binding: ListViewBindingMemoryLeakFragmentBinding
     private lateinit var adapter: ListViewBindingMemoryLeakAdapter
 
-    private var navigationListener: MainNavigationListener? = null
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        navigationListener = context as MainNavigationListener
-    }
+    private val navigationListener: MainNavigationListener get() = requireContext() as MainNavigationListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,16 +37,7 @@ internal class ListViewBindingMemoryLeakFragment : Fragment(R.layout.list_view_b
         return binding.root
     }
 
-    override fun onDetach() {
-        super.onDetach()
-        navigationListener = null
-    }
-
     override fun onListItemClicked(data: String) {
-        navigationListener?.launchFragment(DetailsViewBindingMemoryLeakFragment.newInstance())
-    }
-
-    companion object {
-        fun newInstance() = ListViewBindingMemoryLeakFragment()
+        navigationListener.launchFragment(DetailsViewBindingMemoryLeakFragment.newInstance())
     }
 }

@@ -15,12 +15,7 @@ internal class ListViewBindingDelegateSolutionFragment :
 
     private val binding by viewBinding(ListViewBindingDelegateSolutionFragmentBinding::bind)
 
-    private var navigationListener: MainNavigationListener? = null
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        navigationListener = context as MainNavigationListener
-    }
+    private val navigationListener: MainNavigationListener get() = requireContext() as MainNavigationListener
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -28,13 +23,8 @@ internal class ListViewBindingDelegateSolutionFragment :
             ListViewBindingDelegateSolutionAdapter(listener = this)
     }
 
-    override fun onDetach() {
-        super.onDetach()
-        navigationListener = null
-    }
-
     override fun onListItemClicked(data: String) {
-        navigationListener?.launchFragment(DetailsViewBindingDelegateSolutionFragment.newInstance())
+        navigationListener.launchFragment(DetailsViewBindingDelegateSolutionFragment.newInstance())
     }
 
     companion object {

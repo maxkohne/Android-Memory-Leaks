@@ -7,8 +7,7 @@ import com.kohne.memoryleaks.databinding.ListItemBinding
 
 internal class ListAdapterMemoryLeakAdapter(
     private val listener: OnListMemoryLeakItemClickedListener
-) :
-    RecyclerView.Adapter<ListAdapterMemoryLeakAdapter.ListMemoryLeakViewHolder>() {
+) : RecyclerView.Adapter<ListAdapterMemoryLeakAdapter.ListMemoryLeakViewHolder>() {
 
     private val items = listOf("A", "B", "C", "D", "E", "F", "G")
 

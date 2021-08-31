@@ -6,10 +6,9 @@ import com.kohne.memoryleaks.databinding.DetailsViewBindingDelegateSolutionFragm
 import com.kohne.memoryleaks.viewBinding
 
 internal class DetailsViewBindingDelegateSolutionFragment : Fragment(R.layout.details_view_binding_delegate_solution_fragment) {
-
-    private val binding by viewBinding(DetailsViewBindingDelegateSolutionFragmentBinding::bind)
-
     companion object {
         fun newInstance() = DetailsViewBindingDelegateSolutionFragment()
     }
+
+    private val binding by viewBinding(DetailsViewBindingDelegateSolutionFragmentBinding::bind)
 }

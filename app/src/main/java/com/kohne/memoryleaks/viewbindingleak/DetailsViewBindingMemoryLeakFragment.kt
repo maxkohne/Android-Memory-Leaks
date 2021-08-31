@@ -9,6 +9,10 @@ import com.kohne.memoryleaks.databinding.DetailsViewBindingMemoryLeakFragmentBin
 
 internal class DetailsViewBindingMemoryLeakFragment : Fragment() {
 
+    companion object {
+        fun newInstance() = DetailsViewBindingMemoryLeakFragment()
+    }
+
     private lateinit var binding: DetailsViewBindingMemoryLeakFragmentBinding
 
     override fun onCreateView(
@@ -17,9 +21,5 @@ internal class DetailsViewBindingMemoryLeakFragment : Fragment() {
     ): View {
         binding = DetailsViewBindingMemoryLeakFragmentBinding.inflate(inflater, container, false)
         return binding.root
-    }
-
-    companion object {
-        fun newInstance() = DetailsViewBindingMemoryLeakFragment()
     }
 }
