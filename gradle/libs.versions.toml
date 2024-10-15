@@ -5,7 +5,7 @@ coreKtx = "1.13.1"
 appcompat = "1.7.0"
 material = "1.12.0"
 leakCanary = "2.14"
-fragmentKtx = "1.8.3"
+fragmentKtx = "1.8.4"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
