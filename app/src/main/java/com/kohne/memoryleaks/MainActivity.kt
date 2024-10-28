@@ -1,16 +1,23 @@
 package com.kohne.memoryleaks
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
+import com.kohne.memoryleaks.databinding.MainActivityBinding
 
 internal class MainActivity : AppCompatActivity(), MainNavigationListener {
+
+    private lateinit var binding: MainActivityBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.main_activity)
+        binding = MainActivityBinding.inflate(LayoutInflater.from(this))
+        setContentView(binding.root)
+
+        setSupportActionBar(binding.mainToolbar)
 
         if (savedInstanceState == null) {
             launchFragment(MainFragment.newInstance(), false)
